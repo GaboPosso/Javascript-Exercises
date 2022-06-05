@@ -36,4 +36,33 @@ run inside a context, if we don't specify that context, then the code will be ru
 context, that is the base context that is created automatically in the interpreter.
 
 *BASICALLY, WE CAN TELL THAT ANY CODE BLOCK NOT DECLARED INSIDE A FUNCTION, IS DECLARED IN THE GLOBAL 
-ENVIRONMENT **/
+ENVIRONMENT 
+
+Besides executing the code that its passed, also creates a global object and in addition creates a 
+variable called **this**.*/
+
+//global context
+var sayHello = 'Hello';
+
+function person() {  //execution context
+    var first = 'David',
+        last = 'Shariff';
+    
+        function firstName() { //execution context
+            return first; // 'David'
+        }
+        
+        function lastName() {  //execution context
+            return last; //'Shariff'
+        }
+
+        console.log(sayHello + firstName() +' '+ lastName());
+}
+person()
+
+/* ##Hoisting
+
+Let's see how the interpreter creates the global execution context. When the interpreter reads a code 
+block makes a process called **Hoisting**. Basically read all the code searching for variable and
+function statements, and reserves a memory slot for it-
+*/
