@@ -66,3 +66,72 @@ Let's see how the interpreter creates the global execution context. When the int
 block makes a process called **Hoisting**. Basically read all the code searching for variable and
 function statements, and reserves a memory slot for it-
 */
+
+/* ##Execution Stack
+
+##Functions and Objects
+
+there is something very important in Js is that functions are "First Class"  type, this means that functions
+can be treated as any typo of value. It refers to, we can pass a function as an argument, we can assign a 
+function as a variable, we can save it inside an array , etc. 
+
+Functions in JavaScript are a special kind of objects. This object, besides have any property inside, it has two
+main properties: the first one, is 'name', which is optional (anonymous functions), second one is the so called
+'code' property and inside it the code wrote is saved for the function. */
+
+function sayHi() { //declare the function 
+    console.log('Hi');  //code inside the function
+}
+
+sayHi.greetings = 'Good Morning';    //Add a property to the function    
+console.log(sayHi); // [Function: sayHi] { greetings: 'Good Morning' }, returns the code inside the function.
+sayHi();// Hi
+
+/* ##Expression
+
+A expression is a code unit which evaluates a value
+
+##Statement
+
+Statement doesn't produce a value directly, but **do something**, generally it expressions inside. According to
+he statement used, we're going to have a different behavior. Some examples of statements  are: if, while, for, etc.
+
+In Js, in terms of functions we can have both, *function statements* and *function expressions*, let's see the 
+difference between this both.*/
+
+function greeting() { //This is a function Statement, when this is executed by the interpreter it doesn't return  
+    console.log('Hello');// anything, but it does something: reserves a space in memory for the function we define. 
+}
+
+console.log(function(){// 'function Expression'm in which we're creating an object function type (anonymous) and 
+    
+    //Hi;
+})//[Function (anonymous)]
+
+/* ##PASSING VARIABLES BY REFERENCE OR BY VALUE
+
+There are two ways of passing variables in an programming language, in some of them we can choose the way ourselves,
+but in JS the interpreter choose the way itself. Thw two ways are, by reference or by value.
+
+BY REFERENCE: we're passing a reference or a pointe to the object. Thus, any change we make to this reference, will be 
+reflected on the original object.
+
+Instead, when we pass something by value, we're passing the element by itself, or a copy of it*/
+
+var  a = 1, b = 2;
+
+a = b; //passed the value of a and not the reference when we change b 
+b = 1;
+
+console.log(a);//when we change b doesn't impact the value of a
+
+var a;
+var b = {name : 'Hello'};
+
+a = b;
+b.name = 'Bye';
+
+console.log(a.name); //bye
+
+//When the assign was made, the reference of b was passed, thus when we change the 'name' property of b, it is reflected 
+//in a, because both variables 'point' the same object in memory.
