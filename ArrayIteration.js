@@ -6,7 +6,7 @@ let txt = "";
 console.log(numbers.forEach(myFunction));
 
 function myFunction(value) {
-  return txt += value + "<br>"
+  return txt += value + "' '"
 }
 console.log(numbers.forEach(myFunction));
 //------------------------------- JS ARRAY MAP--------------------------------------------------
